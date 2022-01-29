@@ -14,7 +14,7 @@ namespace ChatFilter
 	public class CFConfig : MyGuiScreenBase
 	{
 		public CFConfig()
-			: base(new Vector2?(new Vector2(0.5f, 0.5f)), new Vector4?(MyGuiConstants.SCREEN_BACKGROUND_COLOR * MySandboxGame.Config.UIBkOpacity), new Vector2?(new Vector2(0.3f, 0.4f)), true, null, 0f, 0f, null)
+			: base(new Vector2?(new Vector2(0.5f, 0.5f)), new Vector4?(MyGuiConstants.SCREEN_BACKGROUND_COLOR * MySandboxGame.Config.UIBkOpacity), new Vector2?(new Vector2(0.45f, 0.45f)), true, null, 0f, 0f, null)
 		{
 			base.CanBeHidden = true;
 			base.CanHideOthers = true;
@@ -63,10 +63,10 @@ namespace ChatFilter
 		public override void RecreateControls(bool constructor)
 		{
 			base.RecreateControls(constructor);
-			Vector2 value = new Vector2(0f, this.m_size.Value.Y / 5f);
-			Vector2 value2 = new Vector2(0.018f, 0f);
-			Vector2 position = new Vector2(-0.05f, 0f);
-			position -= value;
+			Vector2 value = new Vector2(0f, this.m_size.Value.Y / 6f);
+			Vector2 value2 = new Vector2(0.02f, 0f);
+			Vector2 position = new Vector2(-0.075f, 0f);
+			position -= value * 2.5f;
 			base.AddCaption("Chat Filter Configuration", new Vector4?(Color.White.ToVector4()), null, 0.8f);
 			position += value;
 			this.m_HideGlobalCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide global chat", ChatFilter.Settings.HideGlobal, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
@@ -91,8 +91,11 @@ namespace ChatFilter
 			position += value;
 			this.m_okButton = new MyGuiControlButton(null, MyGuiControlButtonStyleEnum.Default, null, null, MyGuiDrawAlignEnum.HORISONTAL_RIGHT_AND_VERTICAL_CENTER, null, MyTexts.Get(MyCommonTexts.Ok), 0.8f, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER, MyGuiControlHighlightType.WHEN_CURSOR_OVER, new Action<MyGuiControlButton>(this.OnOk), GuiSounds.MouseClick, 1f, null, false, false, false, null);
 			this.m_cancelButton = new MyGuiControlButton(null, MyGuiControlButtonStyleEnum.Default, null, null, MyGuiDrawAlignEnum.HORISONTAL_LEFT_AND_VERTICAL_CENTER, null, MyTexts.Get(MyCommonTexts.Cancel), 0.8f, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER, MyGuiControlHighlightType.WHEN_CURSOR_OVER, new Action<MyGuiControlButton>(this.OnCancel), GuiSounds.MouseClick, 1f, null, false, false, false, null);
+			position.X = 0f;
 			this.m_okButton.Position = position - value2;
 			this.m_cancelButton.Position = position + value2;
+			this.m_okButton.Size = new Vector2(0.08f, 0.05f);
+			this.m_cancelButton.Size = new Vector2(0.08f, 0.05f);
 			this.m_okButton.SetToolTip("Save changes and close window");
 			this.m_cancelButton.SetToolTip("Discard changes and close window");
 			this.Controls.Add(this.m_okButton);
