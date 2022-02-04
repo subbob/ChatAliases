@@ -52,6 +52,10 @@ namespace ChatFilter
 		[HarmonyPatch(typeof(MyHudChat), "OnMultiplayer_ChatMessageReceived")]
 		public static bool ChatRecievedPrefix(ulong steamUserId, string messageText, ChatChannel channel, long targetId, string customAuthorName = null)
 		{
+			if (MySession.Static.IsUserAdmin(steamUserId))
+			{
+				return true;
+			}
 			if (!Settings.HideServer && steamUserId == MyMultiplayer.Static.ServerId)
 			{
 				return true;
@@ -115,6 +119,10 @@ namespace ChatFilter
 		[HarmonyPatch(typeof(MyHudChat), "multiplayer_ScriptedChatMessageReceived")]
 		public static bool ScriptedChatRecievedPrefix(string message, string author, string font, Color color)
 		{
+			if (color == Color.Purple)
+			{
+				return true;
+			}
 			if (Settings.HideGlobal && author != "Server" && author != "Good.bot")
 			{
 				return false;
