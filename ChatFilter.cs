@@ -13,17 +13,17 @@ using VRage.Game.ModAPI;
 using VRage.Utils;
 using VRageMath;
 
-namespace ChatFilter
+namespace ChatAliases
 {
 	[HarmonyPatch]
-	public class ChatFilter
+	public class ChatAliases
 	{
-		static ChatFilter()
+		static ChatAliases()
 		{
 			Settings = new CFSettings();
 		}
 
-		public ChatFilter()
+		public ChatAliases()
 		{
 		}
 
@@ -141,7 +141,7 @@ namespace ChatFilter
 			return true;
 		}
 
-		private static readonly string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SpaceEngineers\\ChatFilter.cfg");
+		private static readonly string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SpaceEngineers\\ChatAliases.cfg");
 
 		private static readonly XmlSerializer serializer = new XmlSerializer(typeof(CFSettings));
 
