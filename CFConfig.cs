@@ -9,7 +9,7 @@ using VRage.Utils;
 using VRageMath;
 using Sandbox.Graphics.GUI;
 
-namespace ChatFilter
+namespace ChatAliases
 {
 	public class CFConfig : MyGuiScreenBase
 	{
@@ -24,7 +24,7 @@ namespace ChatFilter
 
 		public override string GetFriendlyName()
 		{
-			return "ChatFilterConfig";
+			return "ChatAliasesConfig";
 		}
 
 		public override void HandleInput(bool receivedFocusInThisUpdate)
@@ -56,7 +56,7 @@ namespace ChatFilter
 			ChatFilter.Settings.HideServer = this.m_HideServerCheckbox.IsChecked;
 			ChatFilter.Settings.HideGlobal = this.m_HideGlobalCheckbox.IsChecked;
 			ChatFilter.SaveSettings();
-			MyHud.Chat.ShowMessage("ChatFilter", "Settings saved", Color.SlateGray);
+			MyHud.Chat.ShowMessage("ChatAliases", "Settings saved", Color.SlateGray);
 			this.ReturnOk();
 		}
 
@@ -67,24 +67,24 @@ namespace ChatFilter
 			Vector2 value2 = new Vector2(0.02f, 0f);
 			Vector2 position = new Vector2(-0.075f, 0f);
 			position -= value * 2.5f;
-			base.AddCaption("Chat Filter Configuration", new Vector4?(Color.White.ToVector4()), null, 0.8f);
+			base.AddCaption("Chat Aliases Configuration", new Vector4?(Color.White.ToVector4()), null, 0.8f);
 			position += value;
-			this.m_HideGlobalCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide global chat", ChatFilter.Settings.HideGlobal, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
+			this.m_HideGlobalCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide global chat", ChatAliases.Settings.HideGlobal, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
 			this.m_HideGlobalLabel = new MyGuiControlLabel(new Vector2?(position + value2), null, "Hide global chat", null, 0.8f, "Blue", MyGuiDrawAlignEnum.HORISONTAL_LEFT_AND_VERTICAL_CENTER, false, float.PositiveInfinity, false);
 			this.Controls.Add(this.m_HideGlobalCheckbox);
 			this.Controls.Add(this.m_HideGlobalLabel);
 			position += value;
-			this.m_HideFactionCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide faction chat", ChatFilter.Settings.HideFaction, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
+			this.m_HideFactionCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide faction chat", ChatAliases.Settings.HideFaction, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
 			this.m_HideFactionLabel = new MyGuiControlLabel(new Vector2?(position + value2), null, "Hide faction chat", null, 0.8f, "Blue", MyGuiDrawAlignEnum.HORISONTAL_LEFT_AND_VERTICAL_CENTER, false, float.PositiveInfinity, false);
 			this.Controls.Add(this.m_HideFactionCheckbox);
 			this.Controls.Add(this.m_HideFactionLabel);
 			position += value;
-			this.m_HidePrivateCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide private messages", ChatFilter.Settings.HidePrivate, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
+			this.m_HidePrivateCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide private messages", ChatAliases.Settings.HidePrivate, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
 			this.m_HidePrivateLabel = new MyGuiControlLabel(new Vector2?(position + value2), null, "Hide private messages", null, 0.8f, "Blue", MyGuiDrawAlignEnum.HORISONTAL_LEFT_AND_VERTICAL_CENTER, false, float.PositiveInfinity, false);
 			this.Controls.Add(this.m_HidePrivateCheckbox);
 			this.Controls.Add(this.m_HidePrivateLabel);
 			position += value;
-			this.m_HideServerCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide messages from server", ChatFilter.Settings.HideServer, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
+			this.m_HideServerCheckbox = new MyGuiControlCheckbox(new Vector2?(position), null, "Hide messages from server", ChatAliases.Settings.HideServer, MyGuiControlCheckboxStyleEnum.Default, MyGuiDrawAlignEnum.HORISONTAL_CENTER_AND_VERTICAL_CENTER);
 			this.m_HideServerLabel = new MyGuiControlLabel(new Vector2?(position + value2), null, "Hide server messages", null, 0.8f, "Blue", MyGuiDrawAlignEnum.HORISONTAL_LEFT_AND_VERTICAL_CENTER, false, float.PositiveInfinity, false);
 			this.Controls.Add(this.m_HideServerCheckbox);
 			this.Controls.Add(this.m_HideServerLabel);
