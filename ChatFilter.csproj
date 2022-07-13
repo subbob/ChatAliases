@@ -7,8 +7,8 @@
     <ProjectGuid>{B4B2F814-EF3D-4FE8-91F7-7C2E450FD11A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChatFilter</RootNamespace>
-    <AssemblyName>ChatFilter</AssemblyName>
+    <RootNamespace>ChatAliases</RootNamespace>
+    <AssemblyName>ChatAliases</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -78,8 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CFConfig.cs" />
-    <Compile Include="ChatFilter.cs" />
+    <Compile Include="CAConfig.cs" />
+    <Compile Include="ChatAliases.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
